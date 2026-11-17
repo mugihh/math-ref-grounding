@@ -1,0 +1,21 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "model": "gpt-5.4-2026-03-05",
+  "currency": "USD",
+  "conditions": {
+    "vlm": {
+      "requests": 1842,
+      "input_tokens": 2369407,
+      "output_tokens": 77050,
+      "estimated_cost": 7.0793
+    },
+    "vlm_latex": {
+      "requests": 1842,
+      "input_tokens": 2647346,
+      "output_tokens": 73599,
+      "estimated_cost": 7.7224
+    }
+  },
+  "estimated_total_cost": 14.8017,
+  "note": "Effective prompt-v4 run cost estimated from aggregate usage rows at the recorded standard rates. The prompt-v4 rerun reused 1,697 unchanged requests per condition and made only 145 new calls per condition; superseded renderer runs are excluded."
+}

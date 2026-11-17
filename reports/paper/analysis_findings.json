@@ -1,0 +1,158 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "status": "post_hoc_analysis_snapshot",
+  "primary_model": "gpt-5.4-2026-03-05",
+  "primary_condition": "vlm-ranking-latex-v4",
+  "findings": [
+    {
+      "id": "latex_headline",
+      "finding": "Reviewed candidate LaTeX improves GPT-5.4 R@1 by 21.9 points and MRR by 17.3 points.",
+      "evidence": {
+        "plain_recall_at_1": 0.500000,
+        "latex_recall_at_1": 0.718784,
+        "plain_mrr": 0.646403,
+        "latex_mrr": 0.819555,
+        "video_clustered_r1_gain_ci_95": [0.155033, 0.284888]
+      },
+      "interpretation": "Reviewed symbolic metadata materially improves candidate discrimination.",
+      "paper_placement": "Main results and analysis",
+      "claim_strength": "primary"
+    },
+    {
+      "id": "implicit_difficulty",
+      "finding": "Implicit mentions are substantially harder in absolute terms, while LaTeX benefits explicit and implicit mentions by similar amounts.",
+      "evidence": {
+        "explicit_recall_at_1": 0.783114,
+        "implicit_recall_at_1": 0.568058,
+        "explicit_minus_implicit": 0.215056,
+        "video_clustered_gap_ci_95": [0.126404, 0.299620],
+        "explicit_latex_r1_gain": 0.223857,
+        "implicit_latex_r1_gain": 0.206897
+      },
+      "interpretation": "Symbolic metadata helps both mention types but does not remove the need for discourse grounding.",
+      "paper_placement": "Main analysis; full table in appendix",
+      "claim_strength": "secondary"
+    },
+    {
+      "id": "symbolic_granularity",
+      "finding": "Among symbolic referents, R@1 decreases from equations to spans to terms.",
+      "evidence": {
+        "equation": {"count": 226, "recall_at_1": 0.849558},
+        "span": {"count": 870, "recall_at_1": 0.735632},
+        "term": {"count": 664, "recall_at_1": 0.697289},
+        "equation_minus_term_video_clustered_ci_95": [0.036560, 0.254177]
+      },
+      "interpretation": "Equation-level candidates may benefit from more complete visual and symbolic context; this is descriptive and not a universal hierarchy claim.",
+      "paper_placement": "Appendix breakdown with concise analysis sentence",
+      "claim_strength": "secondary"
+    },
+    {
+      "id": "figure_difficulty",
+      "finding": "Figure and figure-part references remain difficult.",
+      "evidence": {
+        "figure": {"count": 13, "recall_at_1": 0.461538},
+        "figure_part": {"count": 72, "recall_at_1": 0.347222}
+      },
+      "interpretation": "These subsets receive no candidate LaTeX by policy, and the figure subset is too small for a strong conclusion.",
+      "paper_placement": "Appendix and caveat",
+      "claim_strength": "descriptive"
+    },
+    {
+      "id": "reference_log_difficulty",
+      "finding": "Mentions matched to reference-log targets form a difficulty-enriched subset.",
+      "evidence": {
+        "logged_count": 254,
+        "logged_recall_at_1": 0.507874,
+        "other_count": 1588,
+        "other_recall_at_1": 0.752519,
+        "logged_minus_other": -0.244645,
+        "video_clustered_gap_ci_95": [-0.325988, -0.157715],
+        "logged_error_any_overlap": 0.408000,
+        "logged_error_iou_at_0_5": 0.080000
+      },
+      "interpretation": "The association remains within explicit and implicit mentions, but reference logs are a post-hoc video-consultation proxy rather than a designed confusion label.",
+      "paper_placement": "Optional appendix/supporting insight",
+      "claim_strength": "exploratory"
+    },
+    {
+      "id": "candidate_density",
+      "finding": "Candidate density is a strong and robust difficulty signal.",
+      "evidence": {
+        "recall_at_1_by_candidate_count": {
+          "1-5": 0.859275,
+          "6-10": 0.748115,
+          "11-15": 0.624535,
+          "16+": 0.517442
+        },
+        "small_minus_dense": 0.341833,
+        "video_clustered_gap_ci_95": [0.185452, 0.463288],
+        "adjusted_odds_ratio_per_sd": 0.713210,
+        "adjusted_odds_ratio_ci_95": [0.637435, 0.797994]
+      },
+      "interpretation": "Difficulty grows as more candidates compete, even in the multivariable associational model.",
+      "paper_placement": "Main candidate-count table and analysis",
+      "claim_strength": "primary"
+    },
+    {
+      "id": "candidate_ambiguity",
+      "finding": "Same-type competitors and duplicate reviewed LaTeX identify especially difficult candidate inventories.",
+      "evidence": {
+        "same_type_recall_at_1": {
+          "0-1": 0.831169,
+          "2-3": 0.748908,
+          "4-6": 0.716632,
+          "7+": 0.513966
+        },
+        "no_duplicate_latex_recall_at_1": 0.770019,
+        "duplicate_latex_recall_at_1": 0.434164,
+        "duplicate_latex_adjusted_odds_ratio_per_sd": 0.500377,
+        "duplicate_latex_adjusted_odds_ratio_ci_95": [0.391798, 0.639048]
+      },
+      "interpretation": "Raw candidate count is not the only source of ambiguity; repeated candidates with the same type or symbolic transcription are particularly challenging.",
+      "paper_placement": "Exploratory appendix or future revision",
+      "claim_strength": "exploratory"
+    },
+    {
+      "id": "spatial_errors",
+      "finding": "Spatially close alternatives explain some exact-ID errors but rarely make them near-equivalent boxes.",
+      "evidence": {
+        "exact_errors": 518,
+        "center_distance_at_0_10": 0.472973,
+        "any_overlap": 0.397683,
+        "iou_at_0_5": 0.073359
+      },
+      "interpretation": "Exact visual identity remains meaningfully stricter than spatial proximity.",
+      "paper_placement": "Main analysis sentence and appendix spatial table",
+      "claim_strength": "secondary"
+    },
+    {
+      "id": "language",
+      "finding": "Final GPT-5.4+LaTeX performance is similar in English and Japanese.",
+      "evidence": {
+        "english_recall_at_1": 0.724169,
+        "japanese_recall_at_1": 0.710563,
+        "english_minus_japanese": 0.013606,
+        "video_clustered_gap_ci_95": [-0.065966, 0.098932],
+        "adjusted_japanese_odds_ratio": 0.995791,
+        "adjusted_japanese_odds_ratio_ci_95": [0.756218, 1.311262]
+      },
+      "interpretation": "No meaningful language difference is supported after accounting for video-level uncertainty; source and topic remain confounded with language.",
+      "paper_placement": "Appendix language breakdown and limitation",
+      "claim_strength": "descriptive"
+    }
+  ],
+  "source_reports": [
+    "result_summary.json",
+    "gpt54_latex_paired_analysis.json",
+    "spatial_error_analysis.json",
+    "reference_log_difficulty_analysis.json",
+    "difficulty_multivariable_analysis.json"
+  ],
+  "global_caveats": [
+    "All analyses use the full frozen-model benchmark and estimate association, not held-out generalization.",
+    "Post-hoc analyses should not be presented as preregistered hypotheses.",
+    "Examples within a source video are dependent; video-clustered bootstrap intervals are reported for major contrasts.",
+    "Only 21 source-video clusters are available.",
+    "Language, topic, source style, board density, and transcript provenance are partially confounded."
+  ]
+}

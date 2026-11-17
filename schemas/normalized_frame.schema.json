@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathref.local/schemas/normalized_frame.schema.json",
+  "title": "Normalized annotation frame",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "frame_id",
+    "language",
+    "topic",
+    "video",
+    "image_id",
+    "image_path",
+    "image_size",
+    "annotation_path",
+    "caption",
+    "boxes",
+    "mentions",
+    "warnings"
+  ],
+  "properties": {
+    "frame_id": {"type": "string", "minLength": 1},
+    "language": {"type": "string", "minLength": 1},
+    "topic": {"type": "string", "minLength": 1},
+    "video": {"type": "string", "minLength": 1},
+    "image_id": {"type": "string"},
+    "image_path": {"type": "string", "minLength": 1},
+    "image_size": {"$ref": "#/$defs/nullableImageSize"},
+    "annotation_path": {"type": "string", "minLength": 1},
+    "caption": {"$ref": "#/$defs/caption"},
+    "boxes": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/box"}
+    },
+    "mentions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/frameMention"}
+    },
+    "warnings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dangling_visual_ids"],
+      "properties": {
+        "dangling_visual_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        }
+      }
+    }
+  },
+  "$defs": {
+    "objectType": {
+      "enum": ["equation", "span", "term", "figure", "figure_part"]
+    },
+    "bbox": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "number"},
+        {"type": "number"},
+        {"type": "number", "exclusiveMinimum": 0},
+        {"type": "number", "exclusiveMinimum": 0}
+      ],
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "nullableImageSize": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "array",
+          "prefixItems": [
+            {"type": "integer", "minimum": 1},
+            {"type": "integer", "minimum": 1}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      ]
+    },
+    "caption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caption_id", "text"],
+      "properties": {
+        "caption_id": {"type": "string"},
+        "text": {"type": "string"}
+      }
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual_id", "object_type", "bbox", "source", "auto"],
+      "properties": {
+        "visual_id": {"type": "string", "minLength": 1},
+        "object_type": {"$ref": "#/$defs/objectType"},
+        "bbox": {"$ref": "#/$defs/bbox"},
+        "source": {"type": "string", "minLength": 1},
+        "auto": {"type": "boolean"}
+      }
+    },
+    "frameMention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mention_id",
+        "caption_id",
+        "text",
+        "span",
+        "gold_visual_ids",
+        "gold_object_types",
+        "relation_ids"
+      ],
+      "properties": {
+        "mention_id": {"type": "string", "minLength": 1},
+        "caption_id": {"type": "string"},
+        "text": {"type": "string"},
+        "span": {"$ref": "#/$defs/span"},
+        "gold_visual_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "gold_object_types": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/objectType"},
+          "uniqueItems": true
+        },
+        "relation_ids": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "span": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "integer", "minimum": 0},
+        {"type": "integer", "minimum": 0}
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    }
+  }
+}

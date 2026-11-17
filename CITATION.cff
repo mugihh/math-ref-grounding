@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this benchmark or code, please cite the accompanying paper."
+title: "Math Reference Resolution"
+type: software
+authors:
+  - family-names: Hu
+    given-names: Chen-Yu
+  - family-names: Asakura
+    given-names: Takuto
+  - family-names: Yoshino
+    given-names: Koichiro
+repository-code: "https://github.com/mugihh/math-ref-grounding"
+preferred-citation:
+  type: article
+  title: "Grounding Referring Expressions to Handwritten Mathematics in Instructional Conversation"
+  authors:
+    - family-names: Hu
+      given-names: Chen-Yu
+    - family-names: Asakura
+      given-names: Takuto
+    - family-names: Yoshino
+      given-names: Koichiro
+

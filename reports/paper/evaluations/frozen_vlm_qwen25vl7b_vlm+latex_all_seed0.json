@@ -1,0 +1,282 @@
+{
+  "count": 1842,
+  "recall_at_1": 0.48642779587404994,
+  "recall_at_3": 0.7160694896851248,
+  "mrr": 0.6302277696660106,
+  "spatial": {
+    "count": 1842,
+    "coverage": 1.0,
+    "center_distance_at_0_05": 0.5933767643865364,
+    "center_distance_at_0_10": 0.7106406080347448,
+    "gold_center_in_prediction": 0.6313789359391965,
+    "gold_overlap_fraction": 0.6284708684019062,
+    "iou": 0.5290969480940442,
+    "normalized_center_distance": 0.07748795941264722,
+    "prediction_center_in_gold": 0.5646036916395223,
+    "prediction_overlap_fraction": 0.5592933565965268,
+    "median_normalized_center_distance": 0.012823927830426995
+  },
+  "by_gold_object_type": {
+    "equation": {
+      "count": 226,
+      "recall_at_1": 0.7079646017699115,
+      "recall_at_3": 0.8407079646017699,
+      "mrr": 0.7902512187910419,
+      "spatial": {
+        "count": 226,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.7610619469026548,
+        "center_distance_at_0_10": 0.8716814159292036,
+        "gold_center_in_prediction": 0.7654867256637168,
+        "gold_overlap_fraction": 0.7736155656172169,
+        "iou": 0.7539522567974994,
+        "normalized_center_distance": 0.03613150461124359,
+        "prediction_center_in_gold": 0.8451327433628318,
+        "prediction_overlap_fraction": 0.8438211190454786,
+        "median_normalized_center_distance": 0.0
+      }
+    },
+    "figure": {
+      "count": 13,
+      "recall_at_1": 0.15384615384615385,
+      "recall_at_3": 0.3076923076923077,
+      "mrr": 0.2874264624264624,
+      "spatial": {
+        "count": 13,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.23076923076923078,
+        "center_distance_at_0_10": 0.6153846153846154,
+        "gold_center_in_prediction": 0.15384615384615385,
+        "gold_overlap_fraction": 0.16147550463271376,
+        "iou": 0.16147550463271376,
+        "normalized_center_distance": 0.1483360250826462,
+        "prediction_center_in_gold": 0.38461538461538464,
+        "prediction_overlap_fraction": 0.38461538461538464,
+        "median_normalized_center_distance": 0.08013457708819494
+      }
+    },
+    "figure_part": {
+      "count": 72,
+      "recall_at_1": 0.027777777777777776,
+      "recall_at_3": 0.2777777777777778,
+      "mrr": 0.24338774651274647,
+      "spatial": {
+        "count": 72,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.19444444444444445,
+        "center_distance_at_0_10": 0.4444444444444444,
+        "gold_center_in_prediction": 0.041666666666666664,
+        "gold_overlap_fraction": 0.06325377353992355,
+        "iou": 0.042350358039765876,
+        "normalized_center_distance": 0.15486006396844085,
+        "prediction_center_in_gold": 0.08333333333333333,
+        "prediction_overlap_fraction": 0.09929073998337978,
+        "median_normalized_center_distance": 0.11084955166920765
+      }
+    },
+    "span": {
+      "count": 870,
+      "recall_at_1": 0.47126436781609193,
+      "recall_at_3": 0.7390804597701149,
+      "mrr": 0.6294842934783683,
+      "spatial": {
+        "count": 870,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.5919540229885057,
+        "center_distance_at_0_10": 0.7114942528735633,
+        "gold_center_in_prediction": 0.6701149425287356,
+        "gold_overlap_fraction": 0.6611943838400298,
+        "iou": 0.5371610872555461,
+        "normalized_center_distance": 0.07766816096395508,
+        "prediction_center_in_gold": 0.5770114942528736,
+        "prediction_overlap_fraction": 0.5687081437582612,
+        "median_normalized_center_distance": 0.01430131241164512
+      }
+    },
+    "term": {
+      "count": 664,
+      "recall_at_1": 0.4894578313253012,
+      "recall_at_3": 0.7003012048192772,
+      "mrr": 0.6270647276978518,
+      "spatial": {
+        "count": 664,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.5903614457831325,
+        "center_distance_at_0_10": 0.6867469879518072,
+        "gold_center_in_prediction": 0.6099397590361446,
+        "gold_overlap_fraction": 0.6083036966429135,
+        "iou": 0.5041036372011772,
+        "normalized_center_distance": 0.08120106660468669,
+        "prediction_center_in_gold": 0.5105421686746988,
+        "prediction_overlap_fraction": 0.5054062825271601,
+        "median_normalized_center_distance": 0.01040550364066755
+      }
+    }
+  },
+  "by_mention_type": {
+    "explicit": {
+      "count": 1291,
+      "recall_at_1": 0.5251742835011619,
+      "recall_at_3": 0.7482571649883811,
+      "mrr": 0.6627637346152111,
+      "spatial": {
+        "count": 1291,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.6119287374128582,
+        "center_distance_at_0_10": 0.7250193648334624,
+        "gold_center_in_prediction": 0.6359411309062742,
+        "gold_overlap_fraction": 0.6336060991658593,
+        "iou": 0.5548566933985106,
+        "normalized_center_distance": 0.07505348760867143,
+        "prediction_center_in_gold": 0.5801704105344694,
+        "prediction_overlap_fraction": 0.5744537071069351,
+        "median_normalized_center_distance": 0.0
+      }
+    },
+    "implicit": {
+      "count": 551,
+      "recall_at_1": 0.3956442831215971,
+      "recall_at_3": 0.6406533575317604,
+      "mrr": 0.553995590447468,
+      "spatial": {
+        "count": 551,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.5499092558983666,
+        "center_distance_at_0_10": 0.676950998185118,
+        "gold_center_in_prediction": 0.6206896551724138,
+        "gold_overlap_fraction": 0.6164389574830983,
+        "iou": 0.46874153758938664,
+        "normalized_center_distance": 0.08319195777731646,
+        "prediction_center_in_gold": 0.5281306715063521,
+        "prediction_overlap_fraction": 0.5237724627509062,
+        "median_normalized_center_distance": 0.03611150739086121
+      }
+    }
+  },
+  "by_candidate_count": {
+    "1-5": {
+      "count": 469,
+      "recall_at_1": 0.6716417910447762,
+      "recall_at_3": 0.9275053304904051,
+      "mrr": 0.8005330490405109,
+      "spatial": {
+        "count": 469,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.7249466950959488,
+        "center_distance_at_0_10": 0.7974413646055437,
+        "gold_center_in_prediction": 0.7398720682302772,
+        "gold_overlap_fraction": 0.7386139965471771,
+        "iou": 0.6922926240008686,
+        "normalized_center_distance": 0.05662316247896599,
+        "prediction_center_in_gold": 0.7164179104477612,
+        "prediction_overlap_fraction": 0.7099861814335937,
+        "median_normalized_center_distance": 0.0
+      }
+    },
+    "11-15": {
+      "count": 538,
+      "recall_at_1": 0.35315985130111527,
+      "recall_at_3": 0.5985130111524164,
+      "mrr": 0.5180167828866716,
+      "spatial": {
+        "count": 538,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.48698884758364314,
+        "center_distance_at_0_10": 0.6263940520446096,
+        "gold_center_in_prediction": 0.516728624535316,
+        "gold_overlap_fraction": 0.510906238776719,
+        "iou": 0.40146204535532065,
+        "normalized_center_distance": 0.09421656934651748,
+        "prediction_center_in_gold": 0.44423791821561337,
+        "prediction_overlap_fraction": 0.43234411252996424,
+        "median_normalized_center_distance": 0.053960235419778194
+      }
+    },
+    "16+": {
+      "count": 172,
+      "recall_at_1": 0.32558139534883723,
+      "recall_at_3": 0.47674418604651164,
+      "mrr": 0.4439461904301439,
+      "spatial": {
+        "count": 172,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.47093023255813954,
+        "center_distance_at_0_10": 0.5581395348837209,
+        "gold_center_in_prediction": 0.5465116279069767,
+        "gold_overlap_fraction": 0.5375350739261764,
+        "iou": 0.3689062635020326,
+        "normalized_center_distance": 0.1285768198993426,
+        "prediction_center_in_gold": 0.4127906976744186,
+        "prediction_overlap_fraction": 0.39813960682823485,
+        "median_normalized_center_distance": 0.07236048953031818
+      }
+    },
+    "6-10": {
+      "count": 663,
+      "recall_at_1": 0.5052790346907994,
+      "recall_at_3": 0.7239819004524887,
+      "mrr": 0.6491369197251549,
+      "spatial": {
+        "count": 663,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.6184012066365008,
+        "center_distance_at_0_10": 0.7571644042232277,
+        "gold_center_in_prediction": 0.669683257918552,
+        "gold_overlap_fraction": 0.6695471885950346,
+        "iou": 0.558782624448432,
+        "normalized_center_distance": 0.06541905083612032,
+        "prediction_center_in_gold": 0.5942684766214178,
+        "prediction_overlap_fraction": 0.5975168911657169,
+        "median_normalized_center_distance": 0.0
+      }
+    }
+  },
+  "by_gold_count": {
+    "multi_gold": {
+      "count": 22,
+      "recall_at_1": 0.36363636363636365,
+      "recall_at_3": 0.7727272727272727,
+      "mrr": 0.5870867768595042,
+      "spatial": {
+        "count": 22,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.4090909090909091,
+        "center_distance_at_0_10": 0.5909090909090909,
+        "gold_center_in_prediction": 0.5,
+        "gold_overlap_fraction": 0.4932928776748643,
+        "iou": 0.42317502556155806,
+        "normalized_center_distance": 0.09475366211085635,
+        "prediction_center_in_gold": 0.4090909090909091,
+        "prediction_overlap_fraction": 0.4244547126202866,
+        "median_normalized_center_distance": 0.07069410336088859
+      }
+    },
+    "single_gold": {
+      "count": 1820,
+      "recall_at_1": 0.4879120879120879,
+      "recall_at_3": 0.7153846153846154,
+      "mrr": 0.6307492541944411,
+      "spatial": {
+        "count": 1820,
+        "coverage": 1.0,
+        "center_distance_at_0_05": 0.5956043956043956,
+        "center_distance_at_0_10": 0.7120879120879121,
+        "gold_center_in_prediction": 0.6329670329670329,
+        "gold_overlap_fraction": 0.6301048880700353,
+        "iou": 0.5303773229817995,
+        "normalized_center_distance": 0.07727925311629527,
+        "prediction_center_in_gold": 0.5664835164835165,
+        "prediction_overlap_fraction": 0.5609232742709648,
+        "median_normalized_center_distance": 0.012423021434485792
+      }
+    }
+  },
+  "meta": {
+    "method": "frozen_vlm",
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "prompt_version": "vlm-ranking-latex-v4",
+    "seed": 0,
+    "split": "all",
+    "condition": "vlm+latex"
+  }
+}

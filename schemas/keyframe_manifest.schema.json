@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MathRef keyframe reconstruction record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "image_path",
+    "frame_id",
+    "language",
+    "topic",
+    "video",
+    "source_video_id",
+    "source_url",
+    "source_segment",
+    "download_section",
+    "clip_timestamp",
+    "clip_timestamp_seconds",
+    "source_timestamp_nominal",
+    "source_timestamp_seconds_nominal",
+    "source_timestamp_verified",
+    "source_timestamp_seconds_verified",
+    "source_timestamp_verification",
+    "source_timestamp_similarity",
+    "source_timestamp_corrected_from_replacement",
+    "timecode_provenance",
+    "image_verification",
+    "sha256"
+  ],
+  "properties": {
+    "image_path": {
+      "type": "string",
+      "pattern": "^(en|jp)/(calculus|linear_algebra|probability)/video[1-4]/[0-9]{3}\\.jpg$"
+    },
+    "frame_id": {
+      "type": "string",
+      "pattern": "^(en|jp)/(calculus|linear_algebra|probability)/video[1-4]/[0-9]{3}$"
+    },
+    "language": {"enum": ["en", "jp"]},
+    "topic": {"enum": ["calculus", "linear_algebra", "probability"]},
+    "video": {"type": "string", "pattern": "^video[1-4]$"},
+    "source_video_id": {"type": "string", "minLength": 1},
+    "source_url": {"type": "string", "format": "uri"},
+    "source_segment": {"type": "string", "minLength": 1},
+    "download_section": {"type": "string", "minLength": 1},
+    "clip_timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}$"
+    },
+    "clip_timestamp_seconds": {"type": "number", "minimum": 0},
+    "source_timestamp_nominal": {
+      "type": "string",
+      "pattern": "^[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}$"
+    },
+    "source_timestamp_seconds_nominal": {"type": "number", "minimum": 0},
+    "source_timestamp_verified": {
+      "type": "string",
+      "pattern": "^[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}$"
+    },
+    "source_timestamp_seconds_verified": {"type": "number", "minimum": 0},
+    "source_timestamp_verification": {
+      "const": "full_source_visual_match_10fps"
+    },
+    "source_timestamp_similarity": {
+      "type": "number",
+      "minimum": -1,
+      "maximum": 1
+    },
+    "source_timestamp_corrected_from_replacement": {"type": "boolean"},
+    "timecode_provenance": {"const": "phase1_manifest"},
+    "image_verification": {
+      "enum": [
+        "byte_identical_to_phase1",
+        "pixel_equivalent_reencode",
+        "different_from_phase1",
+        "not_compared"
+      ]
+    },
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

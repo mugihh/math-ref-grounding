@@ -1,0 +1,44 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "policy": {
+    "audit_stage": "before deterministic completion",
+    "invalid_output_policy": "seeded-random",
+    "fallback_seed": 0,
+    "duplicate_policy": "keep first occurrence",
+    "omission_policy": "append missing labels in candidate order"
+  },
+  "official_runs": {
+    "gpt54_vlm": {
+      "total": 1842,
+      "parse_failure": 0,
+      "unknown_labels": 0,
+      "duplicate_labels": 0,
+      "incomplete_rankings": 0,
+      "fallback_rows": 0
+    },
+    "gpt54_vlm_latex": {
+      "total": 1842,
+      "parse_failure": 0,
+      "unknown_labels": 0,
+      "duplicate_labels": 1,
+      "incomplete_rankings": 1,
+      "fallback_rows": 0
+    },
+    "qwen25vl7b_vlm": {
+      "total": 1842,
+      "parse_failure": 0,
+      "unknown_labels": 29,
+      "duplicate_labels": 33,
+      "incomplete_rankings": 91,
+      "fallback_rows": 29
+    },
+    "qwen25vl7b_vlm_latex": {
+      "total": 1842,
+      "parse_failure": 3,
+      "unknown_labels": 27,
+      "duplicate_labels": 44,
+      "incomplete_rankings": 89,
+      "fallback_rows": 30
+    }
+  }
+}

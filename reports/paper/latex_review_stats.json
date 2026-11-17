@@ -1,0 +1,71 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "unique_candidates": 1348,
+  "reviewed_latex_non_null": 1291,
+  "reviewed_latex_null": 57,
+  "overall_reviewed_latex_coverage": 0.9577151335311572,
+  "symbolic_candidates": {
+    "total": 1291,
+    "raw_non_null": 825,
+    "raw_non_null_coverage": 0.6390395042602634,
+    "reviewed_non_null": 1291,
+    "reviewed_non_null_coverage": 1.0,
+    "raw_to_reviewed_changed": 872,
+    "raw_to_reviewed_correction_rate": 0.675445391169636
+  },
+  "by_object_type": {
+    "equation": {
+      "total": 139,
+      "raw_non_null": 139,
+      "raw_non_null_coverage": 1.0,
+      "reviewed_non_null": 139,
+      "reviewed_non_null_coverage": 1.0,
+      "raw_to_reviewed_changed": 47,
+      "raw_to_reviewed_correction_rate": 0.3381294964028777
+    },
+    "span": {
+      "total": 610,
+      "raw_non_null": 532,
+      "raw_non_null_coverage": 0.8721311475409836,
+      "reviewed_non_null": 610,
+      "reviewed_non_null_coverage": 1.0,
+      "raw_to_reviewed_changed": 339,
+      "raw_to_reviewed_correction_rate": 0.5557377049180328
+    },
+    "term": {
+      "total": 542,
+      "raw_non_null": 154,
+      "raw_non_null_coverage": 0.28413284132841327,
+      "reviewed_non_null": 542,
+      "reviewed_non_null_coverage": 1.0,
+      "raw_to_reviewed_changed": 486,
+      "raw_to_reviewed_correction_rate": 0.8966789667896679
+    },
+    "figure": {
+      "total": 8,
+      "reviewed_non_null": 0,
+      "reviewed_non_null_coverage": 0.0
+    },
+    "figure_part": {
+      "total": 49,
+      "reviewed_non_null": 0,
+      "reviewed_non_null_coverage": 0.0
+    }
+  },
+  "comparison_definition": {
+    "correction": "The trimmed reviewed string differs exactly from the trimmed raw Chandra output, including a missing raw output filled during review.",
+    "symbolic_candidate_types": [
+      "equation",
+      "span",
+      "term"
+    ],
+    "non_symbolic_policy": "figure and figure_part candidates are assigned null LaTeX and excluded from the raw-to-reviewed correction rate"
+  },
+  "review_reconciliation": {
+    "reviewed_workbook_rows": 1344,
+    "duplicate_review_keys": 0,
+    "review_keys_missing_from_release": 0,
+    "release_keys_not_sent_to_ocr": 4,
+    "release_keys_not_sent_to_ocr_reason": "One figure and three figure_part candidates added in the final annotation delivery were excluded under the non-symbolic policy."
+  }
+}

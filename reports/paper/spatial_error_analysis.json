@@ -1,0 +1,30 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "model": "gpt-5.4-2026-03-05",
+  "condition": "vlm-ranking-latex-v4",
+  "examples": 1842,
+  "exact_errors": 518,
+  "coverage": 1.0,
+  "error_only": {
+    "center_distance_at_0_05": 0.270270,
+    "center_distance_at_0_10": 0.472973,
+    "prediction_center_in_gold": 0.169884,
+    "gold_center_in_prediction": 0.328185,
+    "prediction_overlap_fraction": 0.151835,
+    "gold_overlap_fraction": 0.298865,
+    "any_overlap": 0.397683,
+    "iou_at_0_5": 0.073359,
+    "mean_iou": 0.102374,
+    "mean_normalized_center_distance": 0.140990,
+    "median_normalized_center_distance": 0.103746,
+    "same_predicted_and_gold_object_type": 0.608863
+  },
+  "plain_condition_comparison": {
+    "exact_errors": 921,
+    "center_distance_at_0_10": 0.501629,
+    "any_overlap": 0.361564,
+    "iou_at_0_5": 0.028230,
+    "mean_normalized_center_distance": 0.136014
+  },
+  "interpretation": "Spatially close or overlapping candidates explain a meaningful minority of exact-ID errors, but only 7.3% of errors meet IoU >= 0.5. Exact object identity remains substantively stricter than spatial proximity."
+}

@@ -1,0 +1,44 @@
+{
+  "status": "post-hoc exploratory diagnostic; predeclared trigger did not fire",
+  "model": "sbintuitions/sarashina2-vision-8b",
+  "scope": "729 Japanese examples",
+  "metrics": {
+    "vlm": {
+      "recall_at_1": 0.1646090535,
+      "recall_at_3": 0.4595336077,
+      "mrr": 0.3756444447
+    },
+    "vlm_latex": {
+      "recall_at_1": 0.2085048011,
+      "recall_at_3": 0.4938271605,
+      "mrr": 0.4119837324
+    }
+  },
+  "compliance": {
+    "vlm": {
+      "total": 729,
+      "parse_failure": 51,
+      "unknown_labels": 428,
+      "duplicate_labels": 83,
+      "incomplete_rankings": 436,
+      "fallback_rows": 479,
+      "fallback_rate": 0.6570644719
+    },
+    "vlm_latex": {
+      "total": 729,
+      "parse_failure": 125,
+      "unknown_labels": 352,
+      "duplicate_labels": 85,
+      "incomplete_rankings": 385,
+      "fallback_rows": 477,
+      "fallback_rate": 0.6543209877
+    }
+  },
+  "japanese_prompt_diagnostic": {
+    "sampling": "20 examples sampled with Python random.Random(0)",
+    "english_instruction_complete": 9,
+    "japanese_instruction_complete": 7,
+    "conclusion": "No evidence that translating only the fixed instructions into Japanese improves JSON-ranking compliance."
+  },
+  "reporting_policy": "Appendix transparency note only; do not place in the official main table or interpret as Japanese visual-understanding ability."
+}

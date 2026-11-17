@@ -1,0 +1,112 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "comparison": {
+    "model": "gpt-5.4-2026-03-05",
+    "plain_prompt": "vlm-ranking-v4",
+    "latex_prompt": "vlm-ranking-latex-v4",
+    "examples": 1842,
+    "rank_definition": "minimum one-based rank of any gold visual ID",
+    "improved": 710,
+    "harmed": 177,
+    "unchanged": 955,
+    "rank1_gain": 506,
+    "rank1_loss": 103,
+    "mean_reciprocal_rank_delta": 0.1731512982
+  },
+  "by_language": {
+    "en": {
+      "count": 1113,
+      "improved": 494,
+      "harmed": 104,
+      "unchanged": 515,
+      "mean_reciprocal_rank_delta": 0.2165412159
+    },
+    "jp": {
+      "count": 729,
+      "improved": 216,
+      "harmed": 73,
+      "unchanged": 440,
+      "mean_reciprocal_rank_delta": 0.1069057861
+    }
+  },
+  "by_mention_type": {
+    "explicit": {
+      "count": 1291,
+      "improved": 456,
+      "harmed": 100,
+      "unchanged": 735,
+      "mean_reciprocal_rank_delta": 0.1746523743
+    },
+    "implicit": {
+      "count": 551,
+      "improved": 254,
+      "harmed": 77,
+      "unchanged": 220,
+      "mean_reciprocal_rank_delta": 0.1696342578
+    }
+  },
+  "by_candidate_count": {
+    "1-5": {
+      "count": 469,
+      "improved": 81,
+      "harmed": 28,
+      "unchanged": 360,
+      "mean_reciprocal_rank_delta": 0.0576048330
+    },
+    "6-10": {
+      "count": 663,
+      "improved": 259,
+      "harmed": 61,
+      "unchanged": 343,
+      "mean_reciprocal_rank_delta": 0.1933910316
+    },
+    "11-15": {
+      "count": 538,
+      "improved": 262,
+      "harmed": 67,
+      "unchanged": 209,
+      "mean_reciprocal_rank_delta": 0.2197936151
+    },
+    "16+": {
+      "count": 172,
+      "improved": 108,
+      "harmed": 21,
+      "unchanged": 43,
+      "mean_reciprocal_rank_delta": 0.2643070101
+    }
+  },
+  "representative_examples": {
+    "helped": [
+      {
+        "example_id": "en/probability/video4/007#m0009",
+        "mention": "Cov(X,Y) + Cov(X,Z)",
+        "plain_gold_rank": 16,
+        "latex_gold_rank": 1,
+        "interpretation": "Reviewed symbolic metadata exactly matches the spoken mathematical expression."
+      },
+      {
+        "example_id": "jp/linear_algebra/video2/008#m0015",
+        "mention": "こういう式",
+        "plain_gold_rank": 17,
+        "latex_gold_rank": 1,
+        "interpretation": "The transcript establishes the current equation while symbolic metadata distinguishes it from nested subexpressions."
+      }
+    ],
+    "harmed": [
+      {
+        "example_id": "en/calculus/video3/004#m0008",
+        "mention": "two derivatives",
+        "plain_gold_rank": 1,
+        "latex_gold_rank": 5,
+        "interpretation": "Symbolic metadata favors the visually nearby differential equation and derivative-bearing regions over the annotated transformed span."
+      },
+      {
+        "example_id": "en/linear_algebra/video1/004#m0003",
+        "mention": "the fourth row",
+        "plain_gold_rank": 1,
+        "latex_gold_rank": 5,
+        "interpretation": "The added symbols draw attention to individual row entries rather than the annotated row-level span."
+      }
+    ]
+  }
+}

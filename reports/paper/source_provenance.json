@@ -1,0 +1,59 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "checked_at": "2026-07-25",
+  "videos": 21,
+  "keyframes": 208,
+  "languages": {
+    "en": {
+      "videos": 11,
+      "keyframes": 114
+    },
+    "jp": {
+      "videos": 10,
+      "keyframes": 94
+    }
+  },
+  "topics": {
+    "calculus": 70,
+    "linear_algebra": 68,
+    "probability": 70
+  },
+  "transcript_provenance_by_keyframe": {
+    "source_provided_captions": 80,
+    "gemini_2_5_audio_transcription": 128
+  },
+  "reference_logs": {
+    "videos_with_log": 21,
+    "policy": "Annotators may consult the linked source interval when the keyframe and transcript are insufficient."
+  },
+  "link_check": {
+    "method": "YouTube oEmbed HTTP status",
+    "alive": 21,
+    "total": 21,
+    "http_status": 200,
+    "source_video_ids": [
+      "5ZpqI8zz1HM",
+      "I_ril7ToAi4",
+      "4PBYm3FuUNQ",
+      "U0xlKuFqCuI",
+      "GLFg2UBMAxc",
+      "S8DQZjE4V8U",
+      "-eA2D_rIcNA",
+      "yFRZf81sB5k",
+      "N8O6zd6vTZ8",
+      "UZjlBQbV1KU",
+      "IujCYxtpszU",
+      "EhZnAcrS_AE",
+      "MdOxnxYV72g",
+      "AY7pK-Zd2-o",
+      "L5r3MhhGq4A",
+      "dmluQUZHs64",
+      "cO_ZW8bjn7w",
+      "190Y2s-w2n4",
+      "KeSLI6laskk",
+      "CzxiafvkEgY",
+      "0ngD82OmHek"
+    ]
+  },
+  "reconstruction_manifest": "data/keyframes/keyframes.jsonl"
+}

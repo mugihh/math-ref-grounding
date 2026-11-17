@@ -1,0 +1,1 @@
+"""Frozen-VLM experiment scaffolding."""

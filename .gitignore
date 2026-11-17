@@ -1,0 +1,37 @@
+PROJECT_NOTES.md
+project_notes.md
+docs/PROJECT_NOTES.md
+docs/project_notes.md
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Local data and generated artifacts
+data/raw/
+data/processed/
+outputs/
+local/
+data/splits/*
+!data/splits/.gitkeep
+
+# Experiment scratch files
+experiments/**/runs/
+experiments/**/wandb/
+experiments/**/.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+
+# local planning docs (not for publication repo)
+docs/decisions.md
+docs/runbook_arr_aug.md
+docs/session_prompts.md

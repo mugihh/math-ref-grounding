@@ -1,0 +1,110 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "analysis_type": "post_hoc_reference_log_difficulty",
+  "model": "gpt-5.4-2026-03-05",
+  "condition": "vlm-ranking-latex-v4",
+  "examples": 1842,
+  "cohort_definition": {
+    "logged_target": "The normalized mention text matches a target entry in the video_reference_log.txt for the same frame.",
+    "other": "All benchmark examples not matched to a logged target entry.",
+    "normalization": "Remove angle-bracket annotation markers, lowercase, collapse whitespace, and remove a terminal occurrence suffix such as _00.",
+    "parsed_log_target_entries": 245,
+    "matched_examples": 254,
+    "note": "Matched examples can exceed unique log entries when the same normalized target text occurs more than once in a frame."
+  },
+  "overall": {
+    "logged_target": {
+      "count": 254,
+      "correct_at_1": 129,
+      "errors": 125,
+      "recall_at_1": 0.507874,
+      "error_rate": 0.492126,
+      "error_only_spatial": {
+        "center_distance_at_0_10": 0.408000,
+        "mean_normalized_center_distance": 0.155400,
+        "any_overlap": 0.408000,
+        "iou_at_0_5": 0.080000
+      }
+    },
+    "other": {
+      "count": 1588,
+      "correct_at_1": 1195,
+      "errors": 393,
+      "recall_at_1": 0.752519,
+      "error_rate": 0.247481,
+      "error_only_spatial": {
+        "center_distance_at_0_10": 0.493639,
+        "mean_normalized_center_distance": 0.136400,
+        "any_overlap": 0.394402,
+        "iou_at_0_5": 0.071247
+      }
+    },
+    "recall_at_1_gap_logged_minus_other": -0.244645
+  },
+  "by_mention_type": {
+    "explicit": {
+      "logged_target": {
+        "count": 82,
+        "correct_at_1": 48,
+        "errors": 34,
+        "recall_at_1": 0.585366,
+        "error_only_spatial": {
+          "center_distance_at_0_10": 0.352941,
+          "mean_normalized_center_distance": 0.174700,
+          "any_overlap": 0.235294,
+          "iou_at_0_5": 0.029412
+        }
+      },
+      "other": {
+        "count": 1209,
+        "correct_at_1": 963,
+        "errors": 246,
+        "recall_at_1": 0.796526,
+        "error_only_spatial": {
+          "center_distance_at_0_10": 0.430894,
+          "mean_normalized_center_distance": 0.154300,
+          "any_overlap": 0.276423,
+          "iou_at_0_5": 0.036585
+        }
+      },
+      "recall_at_1_gap_logged_minus_other": -0.211160
+    },
+    "implicit": {
+      "logged_target": {
+        "count": 172,
+        "correct_at_1": 81,
+        "errors": 91,
+        "recall_at_1": 0.470930,
+        "error_only_spatial": {
+          "center_distance_at_0_10": 0.428571,
+          "mean_normalized_center_distance": 0.148200,
+          "any_overlap": 0.472527,
+          "iou_at_0_5": 0.098901
+        }
+      },
+      "other": {
+        "count": 379,
+        "correct_at_1": 232,
+        "errors": 147,
+        "recall_at_1": 0.612137,
+        "error_only_spatial": {
+          "center_distance_at_0_10": 0.598639,
+          "mean_normalized_center_distance": 0.106500,
+          "any_overlap": 0.591837,
+          "iou_at_0_5": 0.129252
+        }
+      },
+      "recall_at_1_gap_logged_minus_other": -0.141207
+    }
+  },
+  "interpretation": {
+    "primary": "Logged target mentions form a difficulty-enriched subset: their R@1 is 50.8% versus 75.3% for other mentions, and the gap remains within both explicit and implicit mentions.",
+    "conditional_error": "Conditional on an exact-ID error, logged targets have modestly larger center distance, while any-overlap and IoU>=0.5 rates are similar to other errors.",
+    "caveats": [
+      "Reference logs record video consultation or timestamp/reference verification, not a prospectively designed annotator-confusion label.",
+      "Logging practices may differ across annotators, videos, languages, and topics.",
+      "Target matching is normalized text matching and may merge repeated occurrences with the same surface form in one frame.",
+      "This analysis is post hoc and should be presented as supporting evidence rather than a primary benchmark claim."
+    ]
+  }
+}

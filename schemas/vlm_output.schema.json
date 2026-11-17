@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathref.local/schemas/vlm_output.schema.json",
+  "title": "Raw frozen-VLM output row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["example_id", "response"],
+  "properties": {
+    "example_id": {"type": "string", "minLength": 1},
+    "response": {
+      "oneOf": [
+        {"type": "string"},
+        {
+          "type": "object",
+          "required": ["ranking"],
+          "properties": {
+            "ranking": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        },
+        {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      ]
+    }
+  }
+}

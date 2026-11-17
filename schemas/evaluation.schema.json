@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathref.local/schemas/evaluation.schema.json",
+  "title": "Mention-to-box evaluation result",
+  "$ref": "#/$defs/result",
+  "$defs": {
+    "spatial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count", "coverage"],
+      "properties": {
+        "count": {"type": "integer", "minimum": 0},
+        "coverage": {"type": "number", "minimum": 0, "maximum": 1},
+        "center_distance_at_0_05": {"type": "number", "minimum": 0, "maximum": 1},
+        "center_distance_at_0_10": {"type": "number", "minimum": 0, "maximum": 1},
+        "gold_center_in_prediction": {"type": "number", "minimum": 0, "maximum": 1},
+        "gold_overlap_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "iou": {"type": "number", "minimum": 0, "maximum": 1},
+        "normalized_center_distance": {"type": "number", "minimum": 0},
+        "prediction_center_in_gold": {"type": "number", "minimum": 0, "maximum": 1},
+        "prediction_overlap_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "median_normalized_center_distance": {"type": "number", "minimum": 0}
+      }
+    },
+    "metricBucket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count", "recall_at_1", "recall_at_3", "mrr", "spatial"],
+      "properties": {
+        "count": {"type": "integer", "minimum": 0},
+        "recall_at_1": {"type": "number", "minimum": 0, "maximum": 1},
+        "recall_at_3": {"type": "number", "minimum": 0, "maximum": 1},
+        "mrr": {"type": "number", "minimum": 0, "maximum": 1},
+        "spatial": {"$ref": "#/$defs/spatial"}
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count",
+        "recall_at_1",
+        "recall_at_3",
+        "mrr",
+        "spatial",
+        "by_gold_object_type",
+        "by_mention_type",
+        "by_candidate_count",
+        "by_gold_count"
+      ],
+      "properties": {
+        "count": {"type": "integer", "minimum": 0},
+        "recall_at_1": {"type": "number", "minimum": 0, "maximum": 1},
+        "recall_at_3": {"type": "number", "minimum": 0, "maximum": 1},
+        "mrr": {"type": "number", "minimum": 0, "maximum": 1},
+        "spatial": {"$ref": "#/$defs/spatial"},
+        "by_gold_object_type": {
+          "type": "object",
+          "additionalProperties": {"$ref": "#/$defs/metricBucket"}
+        },
+        "by_mention_type": {
+          "type": "object",
+          "propertyNames": {
+            "enum": ["implicit", "explicit", "unknown"]
+          },
+          "additionalProperties": {"$ref": "#/$defs/metricBucket"}
+        },
+        "by_candidate_count": {
+          "type": "object",
+          "propertyNames": {
+            "enum": ["1-5", "6-10", "11-15", "16+"]
+          },
+          "additionalProperties": {"$ref": "#/$defs/metricBucket"}
+        },
+        "by_gold_count": {
+          "type": "object",
+          "propertyNames": {
+            "enum": ["single_gold", "multi_gold"]
+          },
+          "additionalProperties": {"$ref": "#/$defs/metricBucket"}
+        },
+        "meta": {"$ref": "#/$defs/meta"}
+      }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method"],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "model": {"type": ["string", "null"]},
+        "prompt_version": {"type": ["string", "null"]},
+        "seed": {"type": ["integer", "null"]},
+        "split": {"type": ["string", "null"]},
+        "condition": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

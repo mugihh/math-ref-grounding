@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathref.local/schemas/candidate_latex.schema.json",
+  "title": "Candidate LaTeX metadata row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["key", "image_path", "visual_id", "object_type", "latex"],
+  "properties": {
+    "key": {"type": "string", "minLength": 1},
+    "image_path": {"type": "string", "minLength": 1},
+    "visual_id": {"type": "string", "minLength": 1},
+    "object_type": {"enum": ["equation", "span", "term", "figure", "figure_part"]},
+    "latex": {
+      "oneOf": [
+        {"type": "string"},
+        {"type": "null"}
+      ]
+    },
+    "source": {"type": "string", "minLength": 1},
+    "model": {"type": "string"},
+    "confidence": {
+      "oneOf": [
+        {"type": "number"},
+        {"type": "null"}
+      ]
+    }
+  }
+}

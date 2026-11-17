@@ -1,0 +1,635 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "analysis_status": "post_hoc_exploratory",
+  "model": "gpt-5.4-2026-03-05",
+  "condition": "vlm-ranking-latex-v4",
+  "multivariable_logistic": {
+    "outcome": "GPT-5.4+LaTeX exact R@1 correctness",
+    "formula": "correct ~ implicit + logged_target + z_candidate_count + z_gold_area_fraction + z_overlap_count + z_same_type_count + z_duplicate_latex_count + C(gold_type, Treatment(reference='span')) + C(language, Treatment(reference='en')) + C(topic, Treatment(reference='calculus'))",
+    "standardization": "Continuous predictors are z-scored over all 1,842 examples.",
+    "cluster_robust_se": "video_id (21 clusters)",
+    "observations": 1842,
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "log_odds": 2.090219,
+        "odds_ratio": 8.086687,
+        "cluster_robust_se": 0.140513,
+        "odds_ratio_ci_95": [
+          6.139927,
+          10.650698
+        ],
+        "p_value": 0.0
+      },
+      {
+        "term": "C(gold_type, Treatment(reference='span'))[T.equation]",
+        "log_odds": 0.432663,
+        "odds_ratio": 1.541357,
+        "cluster_robust_se": 0.406875,
+        "odds_ratio_ci_95": [
+          0.694328,
+          3.421701
+        ],
+        "p_value": 0.287609
+      },
+      {
+        "term": "C(gold_type, Treatment(reference='span'))[T.figure]",
+        "log_odds": -2.392933,
+        "odds_ratio": 0.091361,
+        "cluster_robust_se": 0.733329,
+        "odds_ratio_ci_95": [
+          0.021704,
+          0.384578
+        ],
+        "p_value": 0.001102
+      },
+      {
+        "term": "C(gold_type, Treatment(reference='span'))[T.figure_part]",
+        "log_odds": -2.224616,
+        "odds_ratio": 0.108109,
+        "cluster_robust_se": 0.301603,
+        "odds_ratio_ci_95": [
+          0.059859,
+          0.19525
+        ],
+        "p_value": 0.0
+      },
+      {
+        "term": "C(gold_type, Treatment(reference='span'))[T.term]",
+        "log_odds": 0.041725,
+        "odds_ratio": 1.042608,
+        "cluster_robust_se": 0.180728,
+        "odds_ratio_ci_95": [
+          0.731615,
+          1.485797
+        ],
+        "p_value": 0.817414
+      },
+      {
+        "term": "C(language, Treatment(reference='en'))[T.jp]",
+        "log_odds": -0.004218,
+        "odds_ratio": 0.995791,
+        "cluster_robust_se": 0.140412,
+        "odds_ratio_ci_95": [
+          0.756218,
+          1.311262
+        ],
+        "p_value": 0.976037
+      },
+      {
+        "term": "C(topic, Treatment(reference='calculus'))[T.linear_algebra]",
+        "log_odds": -0.485602,
+        "odds_ratio": 0.615327,
+        "cluster_robust_se": 0.165673,
+        "odds_ratio_ci_95": [
+          0.444715,
+          0.851392
+        ],
+        "p_value": 0.003378
+      },
+      {
+        "term": "C(topic, Treatment(reference='calculus'))[T.probability]",
+        "log_odds": -0.624773,
+        "odds_ratio": 0.535383,
+        "cluster_robust_se": 0.192149,
+        "odds_ratio_ci_95": [
+          0.367371,
+          0.780234
+        ],
+        "p_value": 0.001148
+      },
+      {
+        "term": "implicit",
+        "log_odds": -1.514198,
+        "odds_ratio": 0.219984,
+        "cluster_robust_se": 0.169185,
+        "odds_ratio_ci_95": [
+          0.157899,
+          0.306482
+        ],
+        "p_value": 0.0
+      },
+      {
+        "term": "logged_target",
+        "log_odds": -0.595571,
+        "odds_ratio": 0.551248,
+        "cluster_robust_se": 0.146417,
+        "odds_ratio_ci_95": [
+          0.413727,
+          0.734479
+        ],
+        "p_value": 4.7e-05
+      },
+      {
+        "term": "z_candidate_count",
+        "log_odds": -0.337979,
+        "odds_ratio": 0.71321,
+        "cluster_robust_se": 0.057308,
+        "odds_ratio_ci_95": [
+          0.637435,
+          0.797994
+        ],
+        "p_value": 0.0
+      },
+      {
+        "term": "z_gold_area_fraction",
+        "log_odds": 0.298563,
+        "odds_ratio": 1.347921,
+        "cluster_robust_se": 0.164078,
+        "odds_ratio_ci_95": [
+          0.977234,
+          1.859217
+        ],
+        "p_value": 0.068813
+      },
+      {
+        "term": "z_overlap_count",
+        "log_odds": 0.010236,
+        "odds_ratio": 1.010289,
+        "cluster_robust_se": 0.082848,
+        "odds_ratio_ci_95": [
+          0.858863,
+          1.188413
+        ],
+        "p_value": 0.901668
+      },
+      {
+        "term": "z_same_type_count",
+        "log_odds": -0.168281,
+        "odds_ratio": 0.845116,
+        "cluster_robust_se": 0.095378,
+        "odds_ratio_ci_95": [
+          0.701018,
+          1.018835
+        ],
+        "p_value": 0.077671
+      },
+      {
+        "term": "z_duplicate_latex_count",
+        "log_odds": -0.692393,
+        "odds_ratio": 0.500377,
+        "cluster_robust_se": 0.124804,
+        "odds_ratio_ci_95": [
+          0.391798,
+          0.639048
+        ],
+        "p_value": 0.0
+      }
+    ],
+    "caveats": [
+      "This is a post-hoc associational model, not a causal analysis.",
+      "Only 21 video clusters are available, so cluster-robust intervals are approximate.",
+      "Logging, language, topic, source style, and transcript provenance remain partially confounded."
+    ]
+  },
+  "video_clustered_bootstrap": {
+    "unit": "source video",
+    "clusters": 21,
+    "samples": 5000,
+    "seed": 20260725,
+    "method": "Percentile cluster bootstrap; sample 21 videos with replacement and retain all examples from each sampled video.",
+    "results": {
+      "r1": {
+        "estimate": 0.718784,
+        "percentile_ci_95": [
+          0.674881,
+          0.762231
+        ]
+      },
+      "explicit_minus_implicit": {
+        "estimate": 0.215056,
+        "percentile_ci_95": [
+          0.126404,
+          0.29962
+        ]
+      },
+      "logged_minus_other": {
+        "estimate": -0.244645,
+        "percentile_ci_95": [
+          -0.325988,
+          -0.157715
+        ]
+      },
+      "en_minus_jp": {
+        "estimate": 0.013606,
+        "percentile_ci_95": [
+          -0.065966,
+          0.098932
+        ]
+      },
+      "equation_minus_term": {
+        "estimate": 0.151004,
+        "percentile_ci_95": [
+          0.03656,
+          0.254177
+        ]
+      },
+      "small_minus_dense": {
+        "estimate": 0.341833,
+        "percentile_ci_95": [
+          0.185452,
+          0.463288
+        ]
+      },
+      "latex_gain": {
+        "estimate": 0.218784,
+        "percentile_ci_95": [
+          0.155033,
+          0.284888
+        ]
+      }
+    }
+  },
+  "candidate_ambiguity": {
+    "candidate_count_bins": [
+      {
+        "bin": "1-5",
+        "count": 469,
+        "mean_feature_value": 3.769723,
+        "recall_at_1": 0.859275,
+        "error_rate": 0.140725
+      },
+      {
+        "bin": "6-10",
+        "count": 663,
+        "mean_feature_value": 7.895928,
+        "recall_at_1": 0.748115,
+        "error_rate": 0.251885
+      },
+      {
+        "bin": "11-15",
+        "count": 538,
+        "mean_feature_value": 12.563197,
+        "recall_at_1": 0.624535,
+        "error_rate": 0.375465
+      },
+      {
+        "bin": "16+",
+        "count": 172,
+        "mean_feature_value": 21.517442,
+        "recall_at_1": 0.517442,
+        "error_rate": 0.482558
+      }
+    ],
+    "overlap_count_bins": [
+      {
+        "bin": "0",
+        "count": 562,
+        "mean_feature_value": 0.0,
+        "recall_at_1": 0.788256,
+        "error_rate": 0.211744
+      },
+      {
+        "bin": "1",
+        "count": 452,
+        "mean_feature_value": 1.0,
+        "recall_at_1": 0.723451,
+        "error_rate": 0.276549
+      },
+      {
+        "bin": "2-3",
+        "count": 490,
+        "mean_feature_value": 2.379592,
+        "recall_at_1": 0.691837,
+        "error_rate": 0.308163
+      },
+      {
+        "bin": "4+",
+        "count": 338,
+        "mean_feature_value": 6.109467,
+        "recall_at_1": 0.636095,
+        "error_rate": 0.363905
+      }
+    ],
+    "same_type_count_bins": [
+      {
+        "bin": "0-1",
+        "count": 539,
+        "mean_feature_value": 0.565863,
+        "recall_at_1": 0.831169,
+        "error_rate": 0.168831
+      },
+      {
+        "bin": "2-3",
+        "count": 458,
+        "mean_feature_value": 2.491266,
+        "recall_at_1": 0.748908,
+        "error_rate": 0.251092
+      },
+      {
+        "bin": "4-6",
+        "count": 487,
+        "mean_feature_value": 4.737166,
+        "recall_at_1": 0.716632,
+        "error_rate": 0.283368
+      },
+      {
+        "bin": "7+",
+        "count": 358,
+        "mean_feature_value": 8.846369,
+        "recall_at_1": 0.513966,
+        "error_rate": 0.486034
+      }
+    ],
+    "max_non_gold_iou_bins": [
+      {
+        "bin": "0",
+        "count": 562,
+        "mean_feature_value": 0.0,
+        "recall_at_1": 0.788256,
+        "error_rate": 0.211744
+      },
+      {
+        "bin": "0-.10",
+        "count": 332,
+        "mean_feature_value": 0.051256,
+        "recall_at_1": 0.71988,
+        "error_rate": 0.28012
+      },
+      {
+        "bin": ".10-.30",
+        "count": 504,
+        "mean_feature_value": 0.181482,
+        "recall_at_1": 0.720238,
+        "error_rate": 0.279762
+      },
+      {
+        "bin": ".30+",
+        "count": 444,
+        "mean_feature_value": 0.477305,
+        "recall_at_1": 0.628378,
+        "error_rate": 0.371622
+      }
+    ],
+    "gold_area_quartiles": [
+      {
+        "bin": "Q1 small",
+        "count": 461,
+        "mean_feature_value": 0.001226,
+        "recall_at_1": 0.665944,
+        "error_rate": 0.334056
+      },
+      {
+        "bin": "Q2",
+        "count": 460,
+        "mean_feature_value": 0.003603,
+        "recall_at_1": 0.741304,
+        "error_rate": 0.258696
+      },
+      {
+        "bin": "Q3",
+        "count": 460,
+        "mean_feature_value": 0.010106,
+        "recall_at_1": 0.706522,
+        "error_rate": 0.293478
+      },
+      {
+        "bin": "Q4 large",
+        "count": 461,
+        "mean_feature_value": 0.055659,
+        "recall_at_1": 0.761388,
+        "error_rate": 0.238612
+      }
+    ],
+    "duplicate_latex": [
+      {
+        "group": "no exact duplicate",
+        "count": 1561,
+        "recall_at_1": 0.770019
+      },
+      {
+        "group": "one or more exact duplicates",
+        "count": 281,
+        "recall_at_1": 0.434164
+      }
+    ],
+    "definitions": {
+      "overlap_count": "Number of non-gold candidates with positive intersection area with the first gold box.",
+      "same_type_count": "Number of non-gold candidates sharing the first gold candidate's object type.",
+      "max_non_gold_iou": "Maximum IoU between the first gold box and any non-gold candidate.",
+      "duplicate_latex_count": "Number of non-gold candidates with the same whitespace-insensitive reviewed LaTeX string as the first gold candidate."
+    }
+  },
+  "interactions": {
+    "mention_type_by_candidate_density": {
+      "explicit": {
+        "1-5": {
+          "count": 331,
+          "recall_at_1": 0.918429
+        },
+        "16+": {
+          "count": 133,
+          "recall_at_1": 0.548872
+        }
+      },
+      "implicit": {
+        "1-5": {
+          "count": 138,
+          "recall_at_1": 0.717391
+        },
+        "16+": {
+          "count": 39,
+          "recall_at_1": 0.410256
+        }
+      }
+    },
+    "mention_type_by_language": {
+      "en": {
+        "explicit": {
+          "count": 803,
+          "recall_at_1": 0.797011
+        },
+        "implicit": {
+          "count": 310,
+          "recall_at_1": 0.535484
+        }
+      },
+      "jp": {
+        "explicit": {
+          "count": 488,
+          "recall_at_1": 0.760246
+        },
+        "implicit": {
+          "count": 241,
+          "recall_at_1": 0.609959
+        }
+      }
+    },
+    "reference_log_by_mention_type": {
+      "explicit": {
+        "logged": {
+          "count": 82,
+          "recall_at_1": 0.585366
+        },
+        "other": {
+          "count": 1209,
+          "recall_at_1": 0.796526
+        }
+      },
+      "implicit": {
+        "logged": {
+          "count": 172,
+          "recall_at_1": 0.47093
+        },
+        "other": {
+          "count": 379,
+          "recall_at_1": 0.612137
+        }
+      }
+    },
+    "object_type_by_candidate_density": {
+      "equation": {
+        "1-5": {
+          "count": 71,
+          "recall_at_1": 0.901408
+        },
+        "16+": {
+          "count": 20,
+          "recall_at_1": 0.85
+        }
+      },
+      "span": {
+        "1-5": {
+          "count": 237,
+          "recall_at_1": 0.839662
+        },
+        "16+": {
+          "count": 70,
+          "recall_at_1": 0.514286
+        }
+      },
+      "term": {
+        "1-5": {
+          "count": 144,
+          "recall_at_1": 0.875
+        },
+        "16+": {
+          "count": 82,
+          "recall_at_1": 0.439024
+        }
+      },
+      "figure": {
+        "1-5": {
+          "count": 2,
+          "recall_at_1": 1.0
+        },
+        "16+": {
+          "count": 0,
+          "recall_at_1": null
+        }
+      },
+      "figure_part": {
+        "1-5": {
+          "count": 15,
+          "recall_at_1": 0.8
+        },
+        "16+": {
+          "count": 0,
+          "recall_at_1": null
+        }
+      }
+    }
+  },
+  "latex_gain_interactions": {
+    "mention_type": {
+      "explicit": {
+        "count": 1291,
+        "plain_recall_at_1": 0.559256,
+        "latex_recall_at_1": 0.783114,
+        "latex_gain": 0.223857
+      },
+      "implicit": {
+        "count": 551,
+        "plain_recall_at_1": 0.361162,
+        "latex_recall_at_1": 0.568058,
+        "latex_gain": 0.206897
+      }
+    },
+    "language": {
+      "en": {
+        "count": 1113,
+        "plain_recall_at_1": 0.449236,
+        "latex_recall_at_1": 0.724169,
+        "latex_gain": 0.274933
+      },
+      "jp": {
+        "count": 729,
+        "plain_recall_at_1": 0.577503,
+        "latex_recall_at_1": 0.710562,
+        "latex_gain": 0.133059
+      }
+    },
+    "reference_log": {
+      "logged": {
+        "count": 254,
+        "plain_recall_at_1": 0.30315,
+        "latex_recall_at_1": 0.507874,
+        "latex_gain": 0.204724
+      },
+      "other": {
+        "count": 1588,
+        "plain_recall_at_1": 0.531486,
+        "latex_recall_at_1": 0.752519,
+        "latex_gain": 0.221033
+      }
+    },
+    "candidate_count": {
+      "1-5": {
+        "count": 469,
+        "plain_recall_at_1": 0.767591,
+        "latex_recall_at_1": 0.859275,
+        "latex_gain": 0.091684
+      },
+      "6-10": {
+        "count": 663,
+        "plain_recall_at_1": 0.482655,
+        "latex_recall_at_1": 0.748115,
+        "latex_gain": 0.26546
+      },
+      "11-15": {
+        "count": 538,
+        "plain_recall_at_1": 0.362454,
+        "latex_recall_at_1": 0.624535,
+        "latex_gain": 0.262082
+      },
+      "16+": {
+        "count": 172,
+        "plain_recall_at_1": 0.267442,
+        "latex_recall_at_1": 0.517442,
+        "latex_gain": 0.25
+      }
+    },
+    "gold_type": {
+      "equation": {
+        "count": 225,
+        "plain_recall_at_1": 0.537778,
+        "latex_recall_at_1": 0.848889,
+        "latex_gain": 0.311111
+      },
+      "span": {
+        "count": 870,
+        "plain_recall_at_1": 0.508046,
+        "latex_recall_at_1": 0.735632,
+        "latex_gain": 0.227586
+      },
+      "term": {
+        "count": 662,
+        "plain_recall_at_1": 0.495468,
+        "latex_recall_at_1": 0.697885,
+        "latex_gain": 0.202417
+      },
+      "figure": {
+        "count": 13,
+        "plain_recall_at_1": 0.461538,
+        "latex_recall_at_1": 0.461538,
+        "latex_gain": 0.0
+      },
+      "figure_part": {
+        "count": 72,
+        "plain_recall_at_1": 0.333333,
+        "latex_recall_at_1": 0.347222,
+        "latex_gain": 0.013889
+      }
+    }
+  }
+}

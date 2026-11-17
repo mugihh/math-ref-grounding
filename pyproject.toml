@@ -1,0 +1,54 @@
+[project]
+name = "math-ref-resolution"
+version = "0.1.0"
+description = "Experiment code for multimodal reference resolution in mathematical dialogue."
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = [
+  "pillow>=10.0",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "jsonschema>=4.19",
+  "pytest>=8.0",
+]
+analysis = [
+  "numpy>=1.26",
+  "pandas>=2.0",
+  "statsmodels>=0.14",
+]
+latex = [
+  "matplotlib>=3.7",
+  "openpyxl>=3.1",
+]
+clip = [
+  "open_clip_torch>=2.20",
+  "torch>=2.0",
+]
+qwen = [
+  "accelerate>=0.26",
+  "torch>=2.1",
+  "transformers>=4.49",
+]
+# NOTE: sarashina requires a separate environment from qwen/chandra because
+# its remote code is pinned to transformers 4.47.0.
+sarashina = [
+  "accelerate>=0.26",
+  "protobuf>=4.25",
+  "sentencepiece>=0.2",
+  "torch>=2.1",
+  "transformers==4.47.0",
+]
+chandra = [
+  "chandra-ocr[hf]",
+  # Keep the CUDA 12.1-compatible pair used by the lab host. Without these
+  # constraints pip selected torch 2.12.1+cu130, which driver 530 cannot load.
+  "torch==2.5.1",
+  "torchvision==0.20.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

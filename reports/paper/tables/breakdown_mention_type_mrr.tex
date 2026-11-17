@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{MRR per mention type bucket. $\pm$ is the standard deviation over 5 seeds.}
+\label{tab:bd_mention_type_mrr}
+\begin{tabular}{lrrr}
+\toprule
+Method & implicit & explicit & unknown \\
+\midrule
+Random & 0.371 $\pm$ 0.006 & 0.354 $\pm$ 0.012 & — \\
+Class-prior & 0.397 $\pm$ 0.008 & 0.360 $\pm$ 0.002 & — \\
+CLIP dual-encoder & 0.384 & 0.458 & — \\
+CLIP dual-encoder + LaTeX & 0.321 & 0.625 & — \\
+GPT-5.4 & 0.535 & 0.694 & — \\
+GPT-5.4 + LaTeX & 0.705 & 0.869 & — \\
+Qwen2.5-VL-7B & 0.440 & 0.476 & — \\
+Qwen2.5-VL-7B + LaTeX & 0.554 & 0.663 & — \\
+\bottomrule
+\end{tabular}
+\end{table}

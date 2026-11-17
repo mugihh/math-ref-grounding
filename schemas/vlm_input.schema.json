@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathref.local/schemas/vlm_input.schema.json",
+  "title": "Frozen-VLM input manifest row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "example_id",
+    "frame_id",
+    "labeled_image_path",
+    "prompt_version",
+    "condition",
+    "candidate_labels",
+    "prompt"
+  ],
+  "properties": {
+    "example_id": {"type": "string", "minLength": 1},
+    "frame_id": {"type": "string", "minLength": 1},
+    "labeled_image_path": {"type": "string", "minLength": 1},
+    "prompt_version": {"type": "string", "minLength": 1},
+    "condition": {"enum": ["vlm", "vlm+latex"]},
+    "candidate_labels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "visual_id"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "pattern": "^C[0-9]{2,}$"
+          },
+          "visual_id": {"type": "string", "minLength": 1},
+          "latex": {"oneOf": [{"type": "string"}, {"type": "null"}]}
+        }
+      }
+    },
+    "prompt": {"type": "string", "minLength": 1}
+  }
+}

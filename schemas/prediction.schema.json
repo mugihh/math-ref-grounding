@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathref.local/schemas/prediction.schema.json",
+  "title": "Mention-to-box ranked prediction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "example_id",
+    "frame_id",
+    "mention",
+    "gold_visual_ids",
+    "gold_object_types",
+    "image_size",
+    "candidates",
+    "ranked_visual_ids",
+    "scores",
+    "baseline"
+  ],
+  "properties": {
+    "example_id": {"type": "string", "minLength": 1},
+    "frame_id": {"type": "string", "minLength": 1},
+    "mention": {"$ref": "#/$defs/mention"},
+    "gold_visual_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "gold_object_types": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/objectType"},
+      "uniqueItems": true
+    },
+    "image_size": {"$ref": "#/$defs/nullableImageSize"},
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/candidate"}
+    },
+    "ranked_visual_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": {"type": "number"}
+    },
+    "baseline": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "objectType": {
+      "enum": ["equation", "span", "term", "figure", "figure_part"]
+    },
+    "bbox": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "number"},
+        {"type": "number"},
+        {"type": "number", "exclusiveMinimum": 0},
+        {"type": "number", "exclusiveMinimum": 0}
+      ],
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "nullableImageSize": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "array",
+          "prefixItems": [
+            {"type": "integer", "minimum": 1},
+            {"type": "integer", "minimum": 1}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      ]
+    },
+    "mention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mention_id", "text", "span"],
+      "properties": {
+        "mention_id": {"type": "string", "minLength": 1},
+        "text": {"type": "string"},
+        "mention_type": {
+          "enum": ["implicit", "explicit", "unknown"]
+        },
+        "span": {
+          "type": "array",
+          "prefixItems": [
+            {"type": "integer", "minimum": 0},
+            {"type": "integer", "minimum": 0}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual_id", "object_type", "bbox", "source"],
+      "properties": {
+        "visual_id": {"type": "string", "minLength": 1},
+        "object_type": {"$ref": "#/$defs/objectType"},
+        "bbox": {"$ref": "#/$defs/bbox"},
+        "source": {"type": "string", "minLength": 1},
+        "latex": {
+          "oneOf": [
+            {"type": "string"},
+            {"type": "null"}
+          ]
+        }
+      }
+    }
+  }
+}

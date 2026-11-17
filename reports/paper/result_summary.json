@@ -1,0 +1,68 @@
+{
+  "dataset_version": "arr_aug_v1",
+  "evaluation_scope": "all 1842 benchmark examples",
+  "metrics": {
+    "random_mean_5_seeds": {
+      "recall_at_1": 0.153,
+      "recall_at_3": 0.427,
+      "mrr": 0.359
+    },
+    "class_prior_mean_5_seeds": {
+      "recall_at_1": 0.165,
+      "recall_at_3": 0.443,
+      "mrr": 0.371
+    },
+    "clip": {
+      "recall_at_1": 0.242,
+      "recall_at_3": 0.512,
+      "mrr": 0.436
+    },
+    "clip_latex": {
+      "recall_at_1": 0.375,
+      "recall_at_3": 0.604,
+      "mrr": 0.534
+    },
+    "qwen25vl7b": {
+      "recall_at_1": 0.2893593920,
+      "recall_at_3": 0.5314875136,
+      "mrr": 0.4653852572
+    },
+    "qwen25vl7b_latex": {
+      "recall_at_1": 0.4864277959,
+      "recall_at_3": 0.7160694897,
+      "mrr": 0.6302277697
+    },
+    "gpt54": {
+      "recall_at_1": 0.5000000000,
+      "recall_at_3": 0.7426710098,
+      "mrr": 0.6464034733
+    },
+    "gpt54_latex": {
+      "recall_at_1": 0.7187839305,
+      "recall_at_3": 0.9006514658,
+      "mrr": 0.8195547716
+    }
+  },
+  "per_language": {
+    "en": {
+      "count": 1113,
+      "qwen25vl7b": [0.258760, 0.499551, 0.438164],
+      "qwen25vl7b_latex": [0.440252, 0.671159, 0.591595],
+      "gpt54": [0.449236, 0.694519, 0.603916],
+      "gpt54_latex": [0.724169, 0.893082, 0.820457]
+    },
+    "jp": {
+      "count": 729,
+      "class_prior_seed0": [0.174211, 0.475995, 0.386811],
+      "qwen25vl7b": [0.336077, 0.580247, 0.506945],
+      "qwen25vl7b_latex": [0.556927, 0.784636, 0.689210],
+      "gpt54": [0.577503, 0.816187, 0.711271],
+      "gpt54_latex": [0.710562, 0.912209, 0.818177]
+    }
+  },
+  "per_language_metric_order": [
+    "recall_at_1",
+    "recall_at_3",
+    "mrr"
+  ]
+}
